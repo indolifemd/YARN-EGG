@@ -10,7 +10,8 @@
   "description": "Egg ini menjalankan aplikasi Node.js menggunakan Yarn sebagai package manager utama. Dirancang untuk memudahkan deployment dengan fitur auto-update dari Git, pemasangan otomatis dependencies, serta eksekusi file JavaScript utama menggunakan yarn.\n\nWM by IndoLife",
   "features": null,
   "docker_images": {
-    "ghcr.io/indolifemd/indo-life:main": "ghcr.io/indolifemd/indo-life:main"
+    "ghcr.io/indolifemd/indo-life:main": "ghcr.io/indolifemd/indo-life:main", 
+    "ghcr.io/indolifemd/yarn-egg:20": "ghcr.io/indolifemd/yarn-egg:20"
   },
   "file_denylist": [],
   "startup": "if [[ -d .git ]] && [[ {{AUTO_UPDATE}} == \"1\" ]]; then git pull; fi; if [[ ! -z ${NODE_PACKAGES} ]]; then yarn add ${NODE_PACKAGES}; fi; if [[ ! -z ${UNNODE_PACKAGES} ]]; then yarn remove ${UNNODE_PACKAGES}; fi; if [ -f /home/container/package.json ]; then yarn install; fi; {{STARTUP_CMD}}",
